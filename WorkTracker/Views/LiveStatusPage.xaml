@@ -10,11 +10,15 @@
         x:Name="EmployeeRefreshView"
         Refreshing="EmployeeRefreshView_Refreshing">
 
-        <CollectionView ItemsSource="{Binding Employees}" Margin ="0, 0, 0, 15">
+        <CollectionView
+            ItemsSource="{Binding Employees}"
+            Margin="0,0,0,15">
 
             <CollectionView.Header>
 
-                <VerticalStackLayout Padding="15" Spacing="15">
+                <VerticalStackLayout
+                    Padding="15"
+                    Spacing="15">
 
                     <!-- Header -->
 
@@ -53,8 +57,6 @@
 
                         <Grid ColumnDefinitions="Auto,*">
 
-                            <!-- Language Icon -->
-
                             <Image
                                 Source="language.png"
                                 WidthRequest="22"
@@ -62,16 +64,14 @@
                                 VerticalOptions="Center"
                                 HorizontalOptions="Center"/>
 
-                            <!-- Language Picker -->
-
                             <Picker
-                                    x:Name="LanguagePicker"
-                                    Grid.Column="1"
-                                    SelectedIndexChanged="LanguagePicker_SelectedIndexChanged"
-                                    FontSize="16"
-                                    VerticalOptions="Center"
-                                    BackgroundColor="Transparent"
-                                    SelectedIndex="0">
+                                x:Name="LanguagePicker"
+                                Grid.Column="1"
+                                SelectedIndexChanged="LanguagePicker_SelectedIndexChanged"
+                                FontSize="16"
+                                VerticalOptions="Center"
+                                BackgroundColor="Transparent"
+                                SelectedIndex="0">
 
                                 <Picker.Items>
                                     <x:String>English</x:String>
@@ -86,27 +86,50 @@
 
                     </Frame>
 
-                    <!-- Filter -->
+                    <!-- ========================= -->
+                    <!-- Professional Filter -->
+                    <!-- ========================= -->
+
+                    <Label
+                        Text="Filter"
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        Margin="0,5,0,0"/>
 
                     <Frame
-                        BorderColor="#D9D9D9"
                         CornerRadius="12"
-                        Padding="15"
-                        HasShadow="False">
+                        BorderColor="#D9D9D9"
+                        BackgroundColor="White"
+                        HasShadow="False"
+                        Padding="15,0"
+                        HeightRequest="55">
 
-                        <Label
-                            Text="{x:Static localization:AppResources.All}"
-                            FontSize="16"/>
+                        <Grid ColumnDefinitions="*,Auto">
+
+                            <Label
+                                Text="{x:Static localization:AppResources.All}"
+                                FontSize="16"
+                                VerticalOptions="Center"
+                                TextColor="#202020"/>
+
+                            <Image
+                                Grid.Column="1"
+                                Source="arrow_down.png"
+                                WidthRequest="18"
+                                HeightRequest="18"
+                                VerticalOptions="Center"
+                                HorizontalOptions="End"/>
+
+                        </Grid>
 
                     </Frame>
 
-                   
                     <!-- Date Navigation -->
 
                     <Grid
-                          ColumnDefinitions="50,*,50"
-                          VerticalOptions="Center"
-                          Margin="0,5">
+                        ColumnDefinitions="50,*,50"
+                        VerticalOptions="Center"
+                        Margin="0,5">
 
                         <!-- Previous Button -->
 
@@ -128,7 +151,7 @@
 
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer
-                                     Tapped="PreviousDateTapped"/>
+                                        Tapped="PreviousDateTapped"/>
                                 </Image.GestureRecognizers>
 
                             </Image>
@@ -138,36 +161,36 @@
                         <!-- Date -->
 
                         <Label
-                             x:Name="DateLabel"
-                             Grid.Column="1"
-                             HorizontalOptions="Center"
-                             VerticalOptions="Center"
-                             FontSize="18"
-                             FontAttributes="Bold"
-                             TextColor="Black"/>
+                            x:Name="DateLabel"
+                            Grid.Column="1"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            FontSize="18"
+                            FontAttributes="Bold"
+                            TextColor="Black"/>
 
                         <!-- Next Button -->
 
                         <Frame
-                             Grid.Column="2"
-                             WidthRequest="42"
-                             HeightRequest="42"
-                             Padding="8"
-                             CornerRadius="21"
-                             BorderColor="#E2E2E2"
-                             BackgroundColor="White"
-                             HasShadow="False"
-                             HorizontalOptions="End"
-                             VerticalOptions="Center">
+                            Grid.Column="2"
+                            WidthRequest="42"
+                            HeightRequest="42"
+                            Padding="8"
+                            CornerRadius="21"
+                            BorderColor="#E2E2E2"
+                            BackgroundColor="White"
+                            HasShadow="False"
+                            HorizontalOptions="End"
+                            VerticalOptions="Center">
 
                             <Image
-                              Source="arrow_forward.png"
-                              WidthRequest="20"
-                              HeightRequest="20">
+                                Source="arrow_forward.png"
+                                WidthRequest="20"
+                                HeightRequest="20">
 
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer
-                                      Tapped="NextDateTapped"/>
+                                        Tapped="NextDateTapped"/>
                                 </Image.GestureRecognizers>
 
                             </Image>
@@ -198,7 +221,7 @@
                             <Frame
                                 Padding="0"
                                 WidthRequest="68"
-                                HeightRequest="60"
+                                HeightRequest="68"
                                 CornerRadius="34"
                                 HasShadow="False"
                                 IsClippedToBounds="True"
@@ -211,22 +234,23 @@
                             </Frame>
 
                             <VerticalStackLayout
-                                 Grid.Column="1"
-                                 VerticalOptions="Center"
-                                 Padding="8,0,0,0"
-                                 Spacing="5">
-                                <Label
-                                  Text="{Binding Name}"
-                                  FontSize="19"
-                                  FontAttributes="Bold"
-                                  TextColor="#1E1E1E"
-                                  LineBreakMode="TailTruncation"/>
-                                <Label
-                                     Text="{Binding Status}"
-                                     FontSize="15"
-                                     FontAttributes="Bold"
-                                     TextColor="{Binding StatusColor}">
+                                Grid.Column="1"
+                                VerticalOptions="Center"
+                                Padding="8,0,0,0"
+                                Spacing="5">
 
+                                <Label
+                                    Text="{Binding Name}"
+                                    FontSize="19"
+                                    FontAttributes="Bold"
+                                    TextColor="#1E1E1E"
+                                    LineBreakMode="TailTruncation"/>
+
+                                <Label
+                                    Text="{Binding Status}"
+                                    FontSize="15"
+                                    FontAttributes="Bold"
+                                    TextColor="{Binding StatusColor}">
 
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer
