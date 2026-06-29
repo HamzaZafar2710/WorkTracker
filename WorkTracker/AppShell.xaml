@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="WorkTracker.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:WorkTracker.Views"
+    xmlns:localization="clr-namespace:WorkTracker.Resources.Localization"
+    FlyoutBehavior="Flyout">
+
+    <!-- Logo Header -->
+    <Shell.FlyoutHeader>
+        <VerticalStackLayout
+            Padding="30,40,30,20"
+            BackgroundColor="White">
+
+            <Image
+                Source="chroniconline.jpeg"
+                HeightRequest="140"
+                Aspect="AspectFit"/>
+
+        </VerticalStackLayout>
+    </Shell.FlyoutHeader>
+
+    <!-- Menu Items -->
+    <FlyoutItem Route="home" FlyoutDisplayOptions = "AsMultipleItems">
+        <ShellContent Title="{x:Static localization:AppResources.Home}" ContentTemplate="{DataTemplate views:HomePage}" Route= "homecontent"/>
+
+        <ShellContent Title="{x:Static localization:AppResources.LiveStatus}" ContentTemplate="{DataTemplate views:LiveStatusPage}" Route="livestatuscontent" />
+
+        <ShellContent Title="{x:Static localization:AppResources.FireReport}" ContentTemplate="{DataTemplate views:FireReportPage}" Route="firereportcontent"/>
+        <ShellContent Title="{x:Static localization:AppResources.Holiday}" ContentTemplate="{DataTemplate views:HolidayPage}" Route="holidaycontent"/>
+
+        <ShellContent Title="{x:Static localization:AppResources.Overtime}" ContentTemplate="{DataTemplate views:OvertimePage}" Route = "overtimecontent"/>
+
+    </FlyoutItem>
+
+
+    <!-- Extra Menu Items -->
+    <MenuItem Text="{x:Static localization:AppResources.BookHoliday}" />
+
+    <MenuItem Text="{x:Static localization:AppResources.TAFireReporting}" />
+
+    <!-- Logout Button -->
+    <Shell.FlyoutFooter>
+
+        <VerticalStackLayout Padding="25">
+
+            <Button
+                Text="{x:Static localization:AppResources.Logout}"
+                HeightRequest="55"
+                CornerRadius="12"
+                BorderColor="Red"
+                BorderWidth="1"
+                BackgroundColor="White"
+                TextColor="Red"
+                FontSize="20" />
+
+        </VerticalStackLayout>
+
+    </Shell.FlyoutFooter>
+
+</Shell>

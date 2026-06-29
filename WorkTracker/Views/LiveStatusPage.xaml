@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:localization="clr-namespace:WorkTracker.Resources.Localization"
+    x:Class="WorkTracker.Views.LiveStatusPage">
+
+    <RefreshView
+        x:Name="EmployeeRefreshView"
+        Refreshing="EmployeeRefreshView_Refreshing">
+
+        <CollectionView ItemsSource="{Binding Employees}">
+
+            <CollectionView.Header>
+
+                <VerticalStackLayout Padding="15" Spacing="15">
+
+                    <!-- Header -->
+
+                    <Grid ColumnDefinitions="*,Auto">
+
+                        <Label
+                            Text="{x:Static localization:AppResources.LiveStatus}"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            FontSize="24"
+                            FontAttributes="Bold"/>
+
+                        <Image
+                            Grid.Column="1"
+                            Source="filter.png"
+                            HeightRequest="25"
+                            WidthRequest="25"/>
+
+                    </Grid>
+
+                    <!-- Language -->
+
+                    <Label
+                        Text="{x:Static localization:AppResources.SelectLanguage}"
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        Margin="0,5,0,0"/>
+
+                    <Frame
+                        CornerRadius="12"
+                        BorderColor="#D9D9D9"
+                        BackgroundColor="White"
+                        HasShadow="False"
+                        Padding="12,0"
+                        HeightRequest="55">
+
+                        <Grid ColumnDefinitions="Auto,*">
+
+                            <!-- Language Icon -->
+
+                            <Image
+                                Source="language.png"
+                                WidthRequest="22"
+                                HeightRequest="22"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"/>
+
+                            <!-- Language Picker -->
+
+                            <Picker
+                                    x:Name="LanguagePicker"
+                                    Grid.Column="1"
+                                    SelectedIndexChanged="LanguagePicker_SelectedIndexChanged"
+                                    FontSize="16"
+                                    VerticalOptions="Center"
+                                    BackgroundColor="Transparent"
+                                    SelectedIndex="0">
+
+                                <Picker.Items>
+                                    <x:String>English</x:String>
+                                    <x:String>Urdu</x:String>
+                                    <x:String>French</x:String>
+                                    <x:String>Persian</x:String>
+                                </Picker.Items>
+
+                            </Picker>
+
+                        </Grid>
+
+                    </Frame>
+
+                    <!-- Filter -->
+
+                    <Frame
+                        BorderColor="#D9D9D9"
+                        CornerRadius="12"
+                        Padding="15"
+                        HasShadow="False">
+
+                        <Label
+                            Text="{x:Static localization:AppResources.All}"
+                            FontSize="16"/>
+
+                    </Frame>
+
+                   
+                    <!-- Date Navigation -->
+
+                    <Grid
+                          ColumnDefinitions="50,*,50"
+                          VerticalOptions="Center"
+                          Margin="0,5">
+
+                        <!-- Previous Button -->
+
+                        <Frame
+                            WidthRequest="42"
+                            HeightRequest="42"
+                            Padding="8"
+                            CornerRadius="21"
+                            BorderColor="#E2E2E2"
+                            BackgroundColor="White"
+                            HasShadow="False"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center">
+
+                            <Image
+                                Source="arrow_back.png"
+                                WidthRequest="20"
+                                HeightRequest="20">
+
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                     Tapped="PreviousDateTapped"/>
+                                </Image.GestureRecognizers>
+
+                            </Image>
+
+                        </Frame>
+
+                        <!-- Date -->
+
+                        <Label
+                             x:Name="DateLabel"
+                             Grid.Column="1"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             FontSize="18"
+                             FontAttributes="Bold"
+                             TextColor="Black"/>
+
+                        <!-- Next Button -->
+
+                        <Frame
+                             Grid.Column="2"
+                             WidthRequest="42"
+                             HeightRequest="42"
+                             Padding="8"
+                             CornerRadius="21"
+                             BorderColor="#E2E2E2"
+                             BackgroundColor="White"
+                             HasShadow="False"
+                             HorizontalOptions="End"
+                             VerticalOptions="Center">
+
+                            <Image
+                              Source="arrow_forward.png"
+                              WidthRequest="20"
+                              HeightRequest="20">
+
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                      Tapped="NextDateTapped"/>
+                                </Image.GestureRecognizers>
+
+                            </Image>
+
+                        </Frame>
+
+                    </Grid>
+
+                </VerticalStackLayout>
+
+            </CollectionView.Header>
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <Frame
+                        Style="{StaticResource EmployeeCardStyle}"
+                        Margin="15,5"
+                        Padding="15">
+
+                        <Grid ColumnDefinitions="70,*">
+
+                            <Frame
+                                Padding="0"
+                                WidthRequest="60"
+                                HeightRequest="60"
+                                CornerRadius="30"
+                                HasShadow="False"
+                                IsClippedToBounds="True"
+                                VerticalOptions="Center">
+
+                                <Image
+                                    Source="{Binding ImagePath}"
+                                    Aspect="AspectFill"/>
+
+                            </Frame>
+
+                            <VerticalStackLayout
+                                Grid.Column="1"
+                                VerticalOptions="Center"
+                                Spacing="3">
+
+                                <Label
+                                    Text="{Binding Name}"
+                                    FontSize="20"
+                                    FontAttributes="Bold"/>
+
+                                <Label
+                                    Text="{Binding Status}"
+                                    FontSize="16"
+                                    TextColor="{Binding StatusColor}">
+
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Tapped="StatusTapped"/>
+                                    </Label.GestureRecognizers>
+
+                                </Label>
+
+                            </VerticalStackLayout>
+
+                        </Grid>
+
+                    </Frame>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </RefreshView>
+
+</ContentPage>
