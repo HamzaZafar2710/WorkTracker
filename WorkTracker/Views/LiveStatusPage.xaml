@@ -10,7 +10,7 @@
         x:Name="EmployeeRefreshView"
         Refreshing="EmployeeRefreshView_Refreshing">
 
-        <CollectionView ItemsSource="{Binding Employees}">
+        <CollectionView ItemsSource="{Binding Employees}" Margin ="0, 0, 0, 15">
 
             <CollectionView.Header>
 
@@ -186,16 +186,20 @@
 
                     <Frame
                         Style="{StaticResource EmployeeCardStyle}"
-                        Margin="15,5"
-                        Padding="15">
+                        Margin="18,8"
+                        Padding="18"
+                        CornerRadius="18"
+                        HasShadow="True"
+                        BorderColor="#F1F1F1"
+                        BackgroundColor="White">
 
-                        <Grid ColumnDefinitions="70,*">
+                        <Grid ColumnDefinitions="80,*">
 
                             <Frame
                                 Padding="0"
-                                WidthRequest="60"
+                                WidthRequest="68"
                                 HeightRequest="60"
-                                CornerRadius="30"
+                                CornerRadius="34"
                                 HasShadow="False"
                                 IsClippedToBounds="True"
                                 VerticalOptions="Center">
@@ -207,19 +211,22 @@
                             </Frame>
 
                             <VerticalStackLayout
-                                Grid.Column="1"
-                                VerticalOptions="Center"
-                                Spacing="3">
-
+                                 Grid.Column="1"
+                                 VerticalOptions="Center"
+                                 Padding="8,0,0,0"
+                                 Spacing="5">
                                 <Label
-                                    Text="{Binding Name}"
-                                    FontSize="20"
-                                    FontAttributes="Bold"/>
-
+                                  Text="{Binding Name}"
+                                  FontSize="19"
+                                  FontAttributes="Bold"
+                                  TextColor="#1E1E1E"
+                                  LineBreakMode="TailTruncation"/>
                                 <Label
-                                    Text="{Binding Status}"
-                                    FontSize="16"
-                                    TextColor="{Binding StatusColor}">
+                                     Text="{Binding Status}"
+                                     FontSize="15"
+                                     FontAttributes="Bold"
+                                     TextColor="{Binding StatusColor}">
+
 
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer
