@@ -14,3 +14,4 @@ namespace WorkTracker
         protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
     }
 }
+

@@ -126,11 +126,20 @@
   <data name="ClockedIn" xml:space="preserve">
     <value>حاضری لگائی</value>
   </data>
+  <data name="English" xml:space="preserve">
+    <value>انگریزی</value>
+  </data>
   <data name="Exception" xml:space="preserve">
     <value>استثنا</value>
   </data>
+  <data name="Filter" xml:space="preserve">
+    <value>فلٹر</value>
+  </data>
   <data name="FireReport" xml:space="preserve">
     <value>فائر رپورٹ</value>
+  </data>
+  <data name="French" xml:space="preserve">
+    <value>فرانسیسی</value>
   </data>
   <data name="Holiday" xml:space="preserve">
     <value>چھٹی</value>
@@ -150,6 +159,9 @@
   <data name="Overtime" xml:space="preserve">
     <value>اوور ٹائم</value>
   </data>
+  <data name="Persian" xml:space="preserve">
+    <value>فارسی</value>
+  </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>زبان منتخب کریں</value>
   </data>
@@ -158,5 +170,8 @@
   </data>
   <data name="Tags" xml:space="preserve">
     <value>ٹیگز</value>
+  </data>
+  <data name="Urdu" xml:space="preserve">
+    <value>اردو</value>
   </data>
 </root>

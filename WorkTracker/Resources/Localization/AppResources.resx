@@ -126,11 +126,20 @@
   <data name="ClockedIn" xml:space="preserve">
     <value>Clocked In</value>
   </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
   <data name="Exception" xml:space="preserve">
     <value>Exception</value>
   </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
   <data name="FireReport" xml:space="preserve">
     <value>Fire Report</value>
+  </data>
+  <data name="French" xml:space="preserve">
+    <value>French</value>
   </data>
   <data name="Holiday" xml:space="preserve">
     <value>Holiday</value>
@@ -150,6 +159,9 @@
   <data name="Overtime" xml:space="preserve">
     <value>Overtime</value>
   </data>
+  <data name="Persian" xml:space="preserve">
+    <value>Persian</value>
+  </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Select Language</value>
   </data>
@@ -158,5 +170,8 @@
   </data>
   <data name="Tags" xml:space="preserve">
     <value>Tags</value>
+  </data>
+  <data name="Urdu" xml:space="preserve">
+    <value>Urdu</value>
   </data>
 </root>

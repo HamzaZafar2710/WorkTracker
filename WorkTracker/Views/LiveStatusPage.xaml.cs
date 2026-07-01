@@ -16,16 +16,28 @@ public partial class LiveStatusPage : ContentPage
     public LiveStatusPage()
     {
         InitializeComponent();
+        LanguagePicker.Items.Clear();
+
+        LanguagePicker.Items.Add(AppResources.English);
+        LanguagePicker.Items.Add(AppResources.Urdu);
+        LanguagePicker.Items.Add(AppResources.French);
+        LanguagePicker.Items.Add(AppResources.Persian);
 
         viewModel = new LiveStatusViewModel();
         BindingContext = viewModel;
 
         DateLabel.Text = viewModel.CurrentDate.ToString("dd MMM yyyy");
 
-        // Restore previously selected language
-        string savedLanguage = Preferences.Default.Get("SelectedLanguage", "English");
+        string savedLanguage = Preferences.Default.Get("SelectedLanguage", "en");
 
-        LanguagePicker.SelectedItem = savedLanguage;
+        LanguagePicker.SelectedIndex = savedLanguage switch
+        {
+            "en" => 0,
+            "ur" => 1,
+            "fr" => 2,
+            "fa" => 3,
+            _ => 0
+        };
 
         // Initialization finished
         isInitializing = false;
@@ -80,19 +92,18 @@ public partial class LiveStatusPage : ContentPage
         if (LanguagePicker.SelectedItem == null)
             return;
 
-        string selectedLanguage = LanguagePicker.SelectedItem.ToString()!;
+        int selectedIndex = LanguagePicker.SelectedIndex;
 
-        // Save selected language
-        Preferences.Default.Set("SelectedLanguage", selectedLanguage);
-
-        string cultureCode = selectedLanguage switch
+        string cultureCode = selectedIndex switch
         {
-            "English" => "en",
-            "Urdu" => "ur",
-            "French" => "fr",
-            "Persian" => "fa",
+            0 => "en",
+            1 => "ur",
+            2 => "fr",
+            3 => "fa",
             _ => "en"
         };
+
+        Preferences.Default.Set("SelectedLanguage", cultureCode);
 
         LocalizationManager.SetLanguage(cultureCode);
 
