@@ -31,7 +31,10 @@
         <ShellContent Title="{x:Static localization:AppResources.Holiday}" ContentTemplate="{DataTemplate views:HolidayPage}" Route="holidaycontent"/>
 
         <ShellContent Title="{x:Static localization:AppResources.Overtime}" ContentTemplate="{DataTemplate views:OvertimePage}" Route = "overtimecontent"/>
-
+        
+        <!-- NEW -->
+        <ShellContent Title="Profile" ContentTemplate="{DataTemplate views:ProfilePage}" Route="profilecontent"/>
+        
     </FlyoutItem>
 
 

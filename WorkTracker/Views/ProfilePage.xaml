@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="WorkTracker.Views.ProfilePage"
+    Title="Profile">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="20">
+
+            <!-- Page Title -->
+
+            <Label
+                Text="Profile"
+                FontSize="28"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"/>
+
+            <!-- Profile Image -->
+
+            <Frame
+                WidthRequest="170"
+                HeightRequest="170"
+                CornerRadius="85"
+                Padding="0"
+                IsClippedToBounds="True"
+                HasShadow="True"
+                HorizontalOptions="Center">
+
+                <Image
+                    x:Name="ProfileImage"
+                    Source="dotnet_bot.png"
+                    Aspect="AspectFill"/>
+
+            </Frame>
+
+            <!-- Take Selfie Button -->
+
+            <Button
+                x:Name="TakeSelfieButton"
+                Text="📷 Take Selfie"
+                HeightRequest="55"
+                CornerRadius="12"/>
+
+            <!-- Employee Information -->
+
+            <Label
+                Text="Employee Information"
+                FontSize="20"
+                FontAttributes="Bold"/>
+
+            <!-- Name -->
+
+            <Frame
+                CornerRadius="12"
+                Padding="15">
+
+                <VerticalStackLayout>
+
+                    <Label
+                        Text="Name"
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        TextColor="Gray"/>
+
+                    <Label
+                        Text="Alexander Allen"
+                        FontSize="18"/>
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+            <!-- Department -->
+
+            <Frame
+                CornerRadius="12"
+                Padding="15">
+
+                <VerticalStackLayout>
+
+                    <Label
+                        Text="Department"
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        TextColor="Gray"/>
+
+                    <Label
+                        Text="Software Development"
+                        FontSize="18"/>
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+            <!-- Email -->
+
+            <Frame
+                CornerRadius="12"
+                Padding="15">
+
+                <VerticalStackLayout>
+
+                    <Label
+                        Text="Email"
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        TextColor="Gray"/>
+
+                    <Label
+                        Text="alexander.allen@company.com"
+                        FontSize="18"/>
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+            <!-- Employee ID -->
+
+            <Frame
+                CornerRadius="12"
+                Padding="15">
+
+                <VerticalStackLayout>
+
+                    <Label
+                        Text="Employee ID"
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        TextColor="Gray"/>
+
+                    <Label
+                        Text="EMP-1001"
+                        FontSize="18"/>
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>
